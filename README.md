@@ -36,6 +36,8 @@ I'd like to comment on others' photos
 ```
 
 **Key learning**
+* Using the gem `Devise` to manage the sign-up/-in/-out process more effectively
+* Customising the `Devise` set up to allow users to log in with either an email or username
 * The importance of relational databases - how users, images and comments are associated and interact.
 
 #### V 3.0 (In development)
