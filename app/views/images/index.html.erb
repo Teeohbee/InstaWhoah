@@ -6,7 +6,10 @@
       <%= image_tag image.upload.url(:medium) %>
     <% end %>
     <h3><%= image.caption %></h3>
-    <p><%= pluralize image.likes.count, 'likes' %></p>
+    <!-- <p><%= pluralize image.likes.count, 'likes' %></p> -->
+    <%= link_to "Like!", image_likes_path(image), class: 'likes-link' %>
+    <span class="likes_count"> <%= image.likes.count %> </span> <%= 'like'.pluralize(image.likes.count) %>
+
     <h3>Comments</h3>
     <% if image.comments.any? %>
       <ul>

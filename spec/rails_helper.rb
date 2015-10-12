@@ -7,6 +7,9 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rails'
 require 'factory_girl'
+require 'capybara/poltergeist'
+Capybara.javascript_driver = :poltergeist
+require 'support/database_cleaner'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -36,7 +39,7 @@ RSpec.configure do |config|
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false
 
   config.include FactoryGirl::Syntax::Methods
 

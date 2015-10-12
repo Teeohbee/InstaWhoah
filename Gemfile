@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+gem 'poltergeist'
+gem 'database_cleaner'
 gem 'foundation-rails'
 # Devise handles building a user model, routes for your users controller, and OAuth
 gem 'devise'
