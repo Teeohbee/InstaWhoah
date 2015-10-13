@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'selenium-webdriver'
 gem 'poltergeist'
 gem 'database_cleaner'
 gem 'foundation-rails'
