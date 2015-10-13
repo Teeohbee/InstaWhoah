@@ -13,6 +13,7 @@
   </head>
 
   <body>
+    <div class="fixed">
     <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
         <li class="name">
@@ -36,8 +37,15 @@
           <li class="active"><%= link_to "Sign up", new_user_registration_path %></li>
           <% end %>
         </ul>
+
+        <ul class="left">
+          <li class="active">
+            <a href=<%= new_image_path %>>Upload an image</a>
+          </li>
+        </ul>
       </section>
     </nav>
+  </div>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

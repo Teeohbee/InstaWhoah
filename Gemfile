@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 gem 'selenium-webdriver'
 gem 'poltergeist'
 gem 'database_cleaner'
-gem 'foundation-rails'
+gem 'foundation-rails', '= 5.5.1.0'
 # Devise handles building a user model, routes for your users controller, and OAuth
 gem 'devise'
 # Paperclip is a gem that makes file uploads to Ruby apps a bit simpler

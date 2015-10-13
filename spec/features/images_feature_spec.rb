@@ -60,7 +60,6 @@ feature 'images' do
       # visit '/images/1'
       click_link 'Test'
       expect(page).to have_content "Test Caption"
-      expect(page).not_to have_content "Upload an image"
     end
   end
 
