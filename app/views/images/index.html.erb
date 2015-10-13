@@ -1,12 +1,13 @@
 <% if @images.all.any? %>
-  <% @images.all.each do |image| %>
+<div class="row">
+<div class="small-6 large-centered columns">
+    <% @images.all.each do |image| %>
     <h4><%= image.user.username %></h4>
     <h4><%= image.created_at.strftime "%H:%M | %d-%m-%Y" %></h4>
     <%= link_to image_path(image) do %>
       <%= image_tag image.upload.url(:medium) %>
     <% end %>
     <h3><%= image.caption %></h3>
-    <!-- <p><%= pluralize image.likes.count, 'likes' %></p> -->
     <%= link_to "Like!", image_likes_path(image), class: 'likes-link' %>
     <span class="likes_count"> <%= image.likes.count %> </span> <%= 'like'.pluralize(image.likes.count) %>
 
@@ -37,4 +38,6 @@
 <% end %>
 <% else %>
   <h1>No images yet</h1>
+</div>
+</div>
 <% end %>

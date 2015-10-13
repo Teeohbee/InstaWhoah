@@ -11,7 +11,6 @@ feature 'liking photos' do
     click_link 'Upload an image'
     allow_any_instance_of(Paperclip::Attachment).to receive(:url).and_return("spec/test.png")
     # attach_file("image[upload]", "spec/test.png")
-    sleep 2
     fill_in 'Caption', with: 'Test Caption'
     click_button 'Create Image'
   end
