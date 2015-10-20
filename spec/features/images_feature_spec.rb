@@ -13,7 +13,7 @@ feature 'images' do
 
   context 'images have been added' do
     before do
-      user.images.create(caption: 'Test Caption')
+      user.images.create(attributes_for(:image))
     end
 
     scenario 'display images' do

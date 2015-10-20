@@ -4,7 +4,7 @@ feature 'commenting' do
   let(:user) { create :user }
 
   before do
-    @image = user.images.create caption: 'Test caption'
+    @image = user.images.create(attributes_for(:image))
   end
 
   context 'comments have been added' do
