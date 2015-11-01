@@ -17,7 +17,7 @@ feature 'liking photos' do
 
   scenario 'a user can like an image', js: true  do
     visit '/'
-    click_link 'Like!'
+    click_link 'like'
     expect(page).to have_content('1 like')
   end
 
