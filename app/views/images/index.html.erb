@@ -1,43 +1,50 @@
 <% if @images.all.any? %>
 <div class="row">
-<div class="small-6 large-centered columns">
+  <div class="small-6 large-centered columns">
     <% @images.all.each do |image| %>
-    <h4><%= image.user.username %></h4>
-    <h4><%= image.created_at.strftime "%H:%M | %d-%m-%Y" %></h4>
-    <%= link_to image_path(image) do %>
-      <%= image_tag image.upload.url(:medium) %>
-    <% end %>
-    <h3><%= image.caption %></h3>
-    <%= link_to "Like!", image_likes_path(image), class: 'likes-link' %>
-    <span class="likes_count"> <%= image.likes.count %> </span> <%= 'like'.pluralize(image.likes.count) %>
+    <div class="panel callout radius">
+      <h4 class="left"><%= image.user.username %></h4>
+      <h4 class="right"><%= image.created_at.strftime "%H:%M | %d-%m-%Y" %></h4>
+      <div class="text-center">
+        <%= link_to image_path(image) do %>
+        <%= image_tag image.upload.url(:medium) %>
+        <% end %>
+        <h3><%= image.caption %></h3>
+      </div>
+      <%= link_to '<i class="material-icons">whatshot</i>'.html_safe, image_likes_path(image), class: 'likes-link button right round', label: 'like' %>
+      <span class="likes_count">
+        <%= image.likes.count %>
+      </span>
+      <%= 'like'.pluralize(image.likes.count) %>
 
-    <h3>Comments</h3>
-    <% if image.comments.any? %>
+      <h3>Comments</h3>
+      <% if image.comments.any? %>
       <ul>
         <% image.comments.reverse[0..2].each do |comment| %>
-          <li>
-            <%= comment.message %>
-            -
-            <%= comment.user.username %>
+        <blockquote>
+          <%= comment.message %>
+          <cite><%= comment.user.username %>
             -
             <%= comment.created_at.strftime "%H:%M | %d-%m-%Y" %>
-          </li>
+          </cite>
+        </blockquote>
         <% end %>
         <% if image.comments.length > 3 %>
-          <%= link_to image_path(image) do %>
-            <li>Read <%= image.comments.length - 3 %> more comment/s...</li>
-          <% end %>
+        <%= link_to image_path(image) do %>
+        Read <%= image.comments.length - 3 %> more comment/s...
+        <% end %>
         <% end %>
       </ul>
+      <% end %>
+      <%= form_for [image, @comment] do |f| %>
+      <%= f.label :message, class: 'hidden'%>
+      <%= f.text_area :message %>
+      <%= f.submit 'Leave Comment', class: 'button radius' %>
+      <% end %>
+    </div>
     <% end %>
-    <%= form_for [image, @comment] do |f| %>
-    <%= f.label :message %>
-    <%= f.text_area :message %>
-    <%= f.submit 'Leave Comment' %>
-  <% end %>
-<% end %>
-<% else %>
-  <h1>No images yet</h1>
-</div>
+    <% else %>
+    <h1>No images yet</h1>
+  </div>
 </div>
 <% end %>
